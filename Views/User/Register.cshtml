@@ -6,6 +6,10 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card shadow rounded-3">
+          @if (ViewBag.Mensagem != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Mensagem</div>
+            }
           <div class="card-body">
             <h3 class="card-title text-center mb-4">Registro</h3>
             <form asp-action="RegisterPost" method="post">
