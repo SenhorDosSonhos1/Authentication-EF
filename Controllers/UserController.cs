@@ -63,6 +63,7 @@ namespace Authentication.Controllers
             {
                 ViewBag.Mensagem = "Usuario ou senha inválidos.";
                 return View("Login");
+                Console.WriteLine("teste");
             }
 
         }
