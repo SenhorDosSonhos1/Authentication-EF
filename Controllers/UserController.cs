@@ -57,16 +57,22 @@ namespace Authentication.Controllers
 
             if (user != null)
             {
-                return Content("Logado com sucesso!");
+                HttpContext.Session.SetString("usuarioLogado", user.Email);
+                return RedirectToAction("Index", "Home");
             }
             else 
             {
                 ViewBag.Mensagem = "Usuario ou senha inválidos.";
                 return View("Login");
-                Console.WriteLine("teste");
+                //Console.WriteLine("teste");
             }
 
         }
 
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login");
+        }
     }
 }
